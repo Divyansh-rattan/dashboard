@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail Sales &amp; Inventory Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>Retail Sales &amp; Inventory Dashboard</h1>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#sales">Sales</a>
+        <a href="#inventory">Inventory</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview <span class="period" id="period"></span></h2>
+      <div class="kpis">
+        <div class="kpi">
+          <p class="kpi-label">Total Revenue</p>
+          <p class="kpi-value" id="kpi-revenue">-</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-label">Total Orders</p>
+          <p class="kpi-value" id="kpi-orders">-</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-label">Total Units Sold</p>
+          <p class="kpi-value" id="kpi-units">-</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-label">Top Product</p>
+          <p class="kpi-value kpi-text" id="kpi-product">-</p>
+          <p class="kpi-note" id="kpi-product-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sales">
+      <h2>Sales</h2>
+      <div class="grid">
+        <div class="panel wide">
+          <h3>Monthly Revenue Trend</h3>
+          <div class="chart-box"><canvas id="monthlyChart"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3>Top 5 Products by Units Sold</h3>
+          <div class="chart-box"><canvas id="productChart"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3>Revenue by Category</h3>
+          <div class="chart-box"><canvas id="categoryChart"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inventory">
+      <h2>Inventory</h2>
+      <div class="panel">
+        <h3>Low Stock Products <span class="hint">(fewer than 20 units left)</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Product</th><th>Category</th><th class="num">Units in Stock</th><th>Status</th></tr>
+            </thead>
+            <tbody id="low-stock-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
